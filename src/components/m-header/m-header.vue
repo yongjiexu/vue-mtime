@@ -5,7 +5,7 @@
     <router-link to="/purchase" class="tab-item"><span>购票</span></router-link>
     <router-link to="/mall" class="tab-item"><span>商城</span></router-link>
     <router-link to="/discovery" class="tab-item"><span>发现</span></router-link>
-    <router-link to="/discovery" class="tab-item"><i class="icon_my"></i></router-link>
+    <router-link to="/mine" class="tab-item"><i class="icon_my"></i></router-link>
   </div>
 </template>
 

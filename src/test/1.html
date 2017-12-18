@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>js时间格式化函数，支持Unix时间戳</title>
+</head>
+<body>
+<script>
+  /**
+   Date 对象方法大全
+   http://www.w3school.com.cn/jsref/jsref_obj_date.asp
+   可传入Unix时间戳。单位秒，默认返回当前时间
+   ts==timestamp
+   author::jom_ch@2014/7/2
+   **/
+  function getTime (/** timestamp=0 **/) {
+    var ts = arguments[0] || 0;
+    var t, y, m, d, h, i, s;
+    t = ts ? new Date(ts * 1000) : new Date();
+    y = t.getFullYear();
+    m = t.getMonth() + 1;
+    d = t.getDate();
+    h = t.getHours();
+    i = t.getMinutes();
+    s = t.getSeconds();
+    // 可依据须要在这里定义时间格式
+    return y + '-' + (m < 10 ? '0' + m : m) + '-' + (d < 10 ?
+      '0' + d : d) + ' ' + (h < 10 ? '0' + h : h) + ':' + (i < 10 ? '0' + i : i) + ':' + (s < 10 ? '0' + s : s);
+  }
+
+  alert(getTime(1404276301));
+
+</script>
+
+</body>
+</html>
