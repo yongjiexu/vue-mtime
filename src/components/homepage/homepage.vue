@@ -1,8 +1,8 @@
 <template>
   <div class="homepage">
-    <a href="">
-      <span>正在热映({{ms.length}})部</span>
-      <i class="i_tnext"></i>
+    <a class="hs-wrapper">
+      <span class="caption">正在热映({{ms.length}})部</span>
+      <i class="right-arrow"></i>
     </a>
     <ul class="hot-showing-movie">
       <li v-for="item in slicedMs" class="hot-showing-movie-item">
@@ -26,7 +26,6 @@
         </p>
       </li>
     </ul>
-
 
 
   </div>
@@ -107,6 +106,31 @@
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
   .homepage
+    .hs-wrapper
+      position: relative
+      display: block
+      box-sizing border-box
+      margin: auto
+      width: 340px
+      font-size 11px
+      height 42px
+      line-height 42px
+      color: #333
+      .caption
+        font-size 1.8em
+        font-weight bold
+        vertical-align middle
+      .right-arrow
+        background: #fff url("https://static1.mtime.cn/html5/20171214163714/images/2014/i-tmore.png") no-repeat center center
+        display: block
+        width: 9px
+        height: 16px
+        position: absolute;
+        margin: auto
+        right: 0;
+        top: 50%;
+        transform rotate(-90deg)
+        vertical-align middle
     .hot-showing-movie
       display: flex
       flex-wrap: wrap
@@ -118,14 +142,4 @@
         .tCn
           width: 84px
           margin: 0
-    .i_tnext
-      display: block
-      background: #fff url("https://static1.mtime.cn/html5/20171214163714/images/2014/i-tmore.png") no-repeat center center
-      background-size: auto .8rem
-      width: 1.4rem
-      height: .8rem
-      margin-top: -0.4rem
-      overflow: hidden
-      line-height: 11rem
-      transform: rotate(-90deg)
 </style>
