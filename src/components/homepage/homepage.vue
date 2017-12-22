@@ -1,33 +1,34 @@
 <template>
   <div class="homepage">
-    <a class="hs-wrapper">
-      <span class="caption">正在热映({{ms.length}})部</span>
-      <i class="right-arrow"></i>
-    </a>
+    <div class="hs-wrapper">
+      <span class="caption">正在热映&nbsp;&nbsp;({{ms.length}}部)</span>
+      <span class="right-arrow"></span>
+    </div>
     <ul class="hot-showing-movie">
       <li v-for="item in slicedMs" class="hot-showing-movie-item">
         <img class="img_box" :src="item.img" alt="">
-        <i v-if="item.r!==-1">{{item.r}}</i>
+        <i v-if="item.r!==-1" class="rating">{{item.r}}</i>
         <div class="tCn">{{item.tCn}}</div>
       </li>
     </ul>
-    <a href="">
-      <span>即将上映({{totalComingMovie}})部</span>
-      <i class="i_tnext"></i>
-    </a>
-
-    <ul>
-      <li v-for="item in hotPoints">
-        <img :src="item.img" alt="">
-        <p><span>{{item.title}}</span></p>
-        <p><span>{{item.desc}}</span></p>
-        <p>
-          <time>{{formatDate(item.publishTime)}}</time>
-        </p>
+    <div class="coming-movie-wrapper">
+      <span class="caption">即将上映({{totalComingMovie}})部</span>
+      <span class="right-arrow"></span>
+    </div>
+    <p class="divider"></p>
+    <div class="hp-wrapper">
+      <span class="caption">今日热点</span>
+    </div>
+    <ul class="hot-points">
+      <li v-for="item in hotPoints" class="hot-point">
+        <img :src="item.img" class="todaypic">
+        <div class="todaytxt">
+          <p class="title">{{item.title}}</pclass>
+          <p class="desc">{{item.desc}}</p>
+          <p class="publish-time">{{formatDate(item.publishTime)}}</p>
+        </div>
       </li>
     </ul>
-
-
   </div>
 </template>
 
@@ -108,38 +109,117 @@
   .homepage
     .hs-wrapper
       position: relative
-      display: block
-      box-sizing border-box
-      margin: auto
-      width: 340px
-      font-size 11px
-      height 42px
-      line-height 42px
-      color: #333
+      width: 100%
+      line-height 60px
       .caption
-        font-size 1.8em
+        padding-left: 20px
+        font-size 26px
         font-weight bold
-        vertical-align middle
       .right-arrow
-        background: #fff url("https://static1.mtime.cn/html5/20171214163714/images/2014/i-tmore.png") no-repeat center center
-        display: block
-        width: 9px
-        height: 16px
-        position: absolute;
-        margin: auto
-        right: 0;
-        top: 50%;
+        position: absolute
+        top: 24px
+        right: 10px
+        display: inline-block
+        width: 1.4rem
+        height: 0.8rem
+        overflow: hidden
+        background-image: url("https://static1.mtime.cn/html5/20171214163714/images/2014/i-tmore.png")
+        background-color white
+        background-repeat no-repeat
+        background-position center center
+        background-size content
         transform rotate(-90deg)
-        vertical-align middle
     .hot-showing-movie
       display: flex
       flex-wrap: wrap
+      justify-content center
+      padding-bottom 22px
       .hot-showing-movie-item
-        flex: 1
+        position: relative
+        flex: 0
+        padding: 0 7px
         .img_box
           width: 84px
           height: 125px
+        .rating
+          position: absolute
+          display: block
+          width: 26px
+          line-height: 23px
+          top: 2px
+          right: 9px
+          background-color #659d0e
+          font-style normal
+          color: #fff
+          text-align center
         .tCn
-          width: 84px
-          margin: 0
+          width: 100%
+          text-align center
+    .coming-movie-wrapper
+      position: relative
+      width: 100%
+      line-height 60px
+      border-top: 1px solid rgb(216, 216, 216)
+      margin-left: 22px
+      .caption
+        font-size 26px
+        font-weight bold
+      .right-arrow
+        position: absolute
+        top: 24px
+        right: 30px
+        display: inline-block
+        width: 1.4rem
+        height: 0.8rem
+        overflow: hidden
+        background-image: url("https://static1.mtime.cn/html5/20171214163714/images/2014/i-tmore.png")
+        background-color white
+        background-repeat no-repeat
+        background-position center center
+        background-size content
+        transform rotate(-90deg)
+    .divider
+      background-color #f6f6f6
+      height: 15px
+    .hp-wrapper
+      position: relative
+      width: 100%
+      line-height 46px
+      .caption
+        padding-left: 20px
+        font-size 26px
+        font-weight bold
+    .hot-points
+      margin-left 20px
+      .hot-point
+        display: flex
+        justify-content center
+        padding: 17px 0
+        border-bottom: 1px solid rgb(216, 216, 216)
+        .todaypic
+          display: inline-block
+          width: 144px
+          height: 101px
+          padding-right 13px
+        .todaytxt
+          display: inline-block
+          width: 216px
+          height: 103px
+          margin-right 20px
+          .title
+            padding-bottom: 5px
+            line-height 23px
+            font-size 20px
+            font-weight bold
+          .desc
+            padding: 5px 0
+            font-size: 15px
+            color: rgb(119, 119, 119)
+          .publish-time
+            color: rgb(153, 153, 153)
+            font-size 14px
+      li.hot-point:first-child
+        padding-top 0
+      li.hot-point:last-child
+        border-bottom 0px
 </style>
