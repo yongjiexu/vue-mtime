@@ -1,17 +1,17 @@
 <template>
   <div class="homepage">
-    <div class="hs-wrapper">
+    <div class="hs-wrapper" @click="handleHotShowingClick">
       <span class="caption">正在热映&nbsp;&nbsp;({{ms.length}}部)</span>
       <span class="right-arrow"></span>
     </div>
     <ul class="hot-showing-movie">
-      <li v-for="item in slicedMs" class="hot-showing-movie-item">
+      <li v-for="item in slicedMs" class="hot-showing-movie-item" @click="handleMovieItemClick">
         <img class="img_box" :src="item.img" alt="">
         <i v-if="item.r!==-1" class="rating">{{item.r}}</i>
         <div class="tCn">{{item.tCn}}</div>
       </li>
     </ul>
-    <div class="coming-movie-wrapper">
+    <div class="coming-movie-wrapper" @click="handleHotShowingClick">
       <span class="caption">即将上映({{totalComingMovie}})部</span>
       <span class="right-arrow"></span>
     </div>
@@ -20,7 +20,7 @@
       <span class="caption">今日热点</span>
     </div>
     <ul class="hot-points">
-      <li v-for="item in hotPoints" class="hot-point">
+      <li v-for="item in hotPoints" class="hot-point" @click="handleHotPointClick">
         <img :src="item.img" class="todaypic">
         <div class="todaytxt">
           <p class="title">{{item.title}}</pclass>
@@ -29,6 +29,7 @@
         </div>
       </li>
     </ul>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -100,6 +101,15 @@
         var s = t.getSeconds()
         // 可依据需要在这里定义时间格式
         return y + '-' + (m < 10 ? '0' + m : m) + '-' + (d < 10 ? '0' + d : d) + ' ' + (h < 10 ? '0' + h : h) + ':' + (i < 10 ? '0' + i : i) + ':' + (s < 10 ? '0' + s : s)
+      },
+      handleHotShowingClick () {
+        this.$router.push('/hot-and-coming')
+      },
+      handleMovieItemClick () {
+        this.$router.push('/movie-detail')
+      },
+      handleHotPointClick () {
+        this.$router.push('/hotpoint-detail')
       }
     }
   }

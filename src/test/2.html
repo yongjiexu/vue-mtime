@@ -4,32 +4,43 @@
   <meta charset="UTF-8">
   <title>Title</title>
   <style>
-    .container-wrapper{
-      width: 800px;
-      height: 600px;
-      border: 1px solid red;
+    .content{
+      overflow: hidden;
+      width: 900px;
     }
-    .container{
-      position: relative;
+    .primary{
+      float: right;
       width: 500px;
-      height: 400px;
-      border: 1px solid green;
+      height: 900px;
     }
-    .child{
-      position: absolute;
-      left: 0;
-      bottom: 0px;
-      width: 20px;
-      height: 20px;
-      border: 1px solid blue;
+    .secondary{
+      width: 300px;
+      height: 900px;
+      background: blue;
+      float: left;
+    }
+    .primary .primary{
+      float: left;
+      width: 300px;
+      height: 900px;
+      padding-right: 20px;
+      background: red;
+    }
+    .primary .secondary{
+      float: right;
+      width: 150px;
+      height: 900px;
+      background: black;
     }
   </style>
 </head>
 <body>
-<div class="container-wrapper">
-  <div class="container">
-    <div class="child"></div>
+<div class="content">
+  <div class="primary">
+    <div class="primary"></div>
+    <div class="secondary"></div>
   </div>
+  <div class="secondary"></div>
 </div>
 </body>
 </html>

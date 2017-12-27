@@ -9,6 +9,9 @@ import PcVersion from 'components/pc-version/pc-version'
 import ClientDownload from 'components/client-download/client-download'
 import Feedback from 'components/feedback/feedback'
 import HelpCenter from 'components/help-center/help-center'
+import HotAndComing from 'components/hot-and-coming/hot-and-coming'
+import MovieDetail from 'components/movie-detail/movie-detail'
+import HotpointDetail from 'components/hotpoint-detail/hotpoint-detail'
 
 Vue.use(VueRouter)
 
@@ -49,6 +52,18 @@ const router = new VueRouter({
     {
       path: '/helpcenter',
       component: HelpCenter
+    },
+    {
+      path: '/hot-and-coming',
+      component: HotAndComing
+    },
+    {
+      path: '/movie-detail',
+      component: MovieDetail
+    },
+    {
+      path: '/hotpoint-detail',
+      component: HotpointDetail
     }
   ]
 })
