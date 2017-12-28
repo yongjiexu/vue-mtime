@@ -14,10 +14,14 @@
       <div class="movie-item" v-for="movie in ms">
         <img :src="movie.img" alt="" width="100px" height="100px">
         <div class="description">
-          <h1 class="title">{{movie.tCn}}</h1>
-          <span class="rating" v-if="movie.r">{{movie.r}}</span>
+          <div class="title-rating-wrapper">
+            <span class="title">{{movie.tCn}}</span>
+            <span class="rating" v-if="movie.r!==-1">{{movie.r}}</span>
+          </div>
           <p class="common-special">{{movie.commonSpecial}}</p>
-          <span class="version" v-for="version in movie.versions">{{version.version}}</span>
+          <div class="version-wrapper">
+            <span class="version" v-for="version in movie.versions" v-if="version.enum!==1">{{version.version}}</span>
+          </div>
           <div>
             <span class="nearest-cinema-count">{{movie.cC}}家院线上映{{movie.NearestShowtimeCount}}场</span>
             <span class="buy-ticket-button">购票</span>
@@ -29,6 +33,7 @@
 </template>
 
 <script>
+  // todo rating可以拆成一个基础组件
   import axios from 'axios'
 
   export default {
@@ -102,4 +107,81 @@
             border-radius 20px
             background: blue
             font-size 16px
+    .movie-item-wrapper
+      .movie-item
+        padding-top: 19px
+        padding-bottom: 11px
+        margin-left: 20px
+        border-bottom 1px solid rgb(216, 216, 216)
+        img
+          float: left
+          display: inline-block
+          vertical-align: top
+          margin-right 22px
+          width: 84px
+          height: 126px
+        .description
+          position: relative
+          height: 130px
+          width: 100%
+          margin-left: 106px
+          .title-rating-wrapper
+            position: relative
+            margin-bottom 11px
+            .title
+              width: 39px
+              height: 26px
+              font-size 19px
+              font-weight 700
+              color: rgb(51, 51, 51)
+            .rating
+              display: inline-block
+              width: 1.7em
+              height: 1.5em
+              line-height 1.5em
+              text-align center
+              vertical-align: middle
+              font-size 1.1em
+              background-color #659d0e
+              color: #fff
+          .common-special
+            margin-bottom 12px
+            height: 16px
+            color: #659d0e
+            font-size 16px
+          .version-wrapper
+            position: relative
+            height: 16px
+            margin-bottom 8px
+            .version
+              width: 38px
+              height 19px
+              line-height 12px
+              border: 1px solid #659d0e
+              margin-right 2px
+              font-size 13px
+              color: #659d0e
+
+          div
+            position: relative
+            bottom: 0
+            right: 0
+            .nearest-cinema-count
+              display: inline-block
+              height: 44px
+              line-height 45px
+            .buy-ticket-button
+              position: absolute
+              right: 106px
+              display: inline-block
+              width: 97px
+              height: 37px
+              margin-left: 13px
+              margin-right 19px
+              line-height 37px
+              vertical-align: middle
+              text-align center
+              background-color rgb(255, 134, 0)
+              border-radius 517px
+              color: #fff
 </style>
