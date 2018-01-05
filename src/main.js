@@ -4,12 +4,17 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import 'common/stylus/index.styl'
+
+import Vant from 'vant'
+import 'vant/lib/vant-css/index.css'
+
+Vue.use(Vant)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   template: '<App/>',
-  components: { App },
+  components: {App},
   router
 })

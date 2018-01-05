@@ -16,7 +16,8 @@
     "stylus-loader": "^3.0.1",
     "vue-router": "^3.0.1",
     "axios": "^0.17.1",
-    "moment": "^2.20.0"
+    "moment": "^2.20.0",
+    "vant": "^0.12.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

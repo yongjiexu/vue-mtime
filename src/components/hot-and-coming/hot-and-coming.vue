@@ -2,7 +2,7 @@
   <div id="hot-and-coming-wrapper">
     <div class="header">
       <span class="nav">
-        <i class="arrow-back"></i>
+        <i class="arrow-back" @click="handleArrowBackClick"></i>
         <span class="selector">
           <div class="hot-showing-button">正在热映</div>
           <div class="coming-movie-button">即将上映</div>
@@ -58,6 +58,9 @@
         })
     },
     methods: {
+      handleArrowBackClick () {
+        this.$router.push('homepage')
+      }
     }
   }
 </script>
