@@ -8,7 +8,7 @@
       <li v-for="item in slicedMs" class="hot-showing-movie-item" @click="handleMovieItemClick">
         <img class="img_box" :src="item.img" alt="">
         <i v-if="item.r!==-1" class="rating">{{item.r}}</i>
-        <div class="tCn">{{item.tCn}}</div>
+        <p><span class="tCn">{{item.tCn}}</span></p>
       </li>
     </ul>
     <div class="coming-movie-wrapper" @click="handleHotShowingClick">
@@ -162,15 +162,23 @@
           font-style normal
           color: #fff
           text-align center
-        .tCn
-          width: 100%
+        p
           text-align center
+          margin-bottom 8px
+          .tCn
+            display: inline-block
+            text-align center
+            overflow: hidden
+            line-height: 16px
+            height: 32px
+            color: #333
     .coming-movie-wrapper
       position: relative
       width: 100%
       line-height 60px
       border-top: 1px solid rgb(216, 216, 216)
       margin-left: 22px
+      margin-top -8px
       .caption
         font-size 26px
         font-weight bold
