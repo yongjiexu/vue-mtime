@@ -23,7 +23,7 @@
       <li v-for="item in hotPoints" class="hot-point" @click="handleHotPointClick">
         <img :src="item.img" class="todaypic">
         <div class="todaytxt">
-          <p class="title">{{item.title}}</pclass>
+          <p class="title">{{item.title}}</p>
           <p class="desc">{{item.desc}}</p>
           <p class="publish-time">{{formatDate(item.publishTime)}}</p>
         </div>
