@@ -12,6 +12,10 @@ import HelpCenter from 'components/help-center/help-center'
 import HotAndComing from 'components/hot-and-coming/hot-and-coming'
 import MovieDetail from 'components/movie-detail/movie-detail'
 import HotpointDetail from 'components/hotpoint-detail/hotpoint-detail'
+import News from 'components/news/news'
+import Trailer from 'components/trailer/trailer'
+import Toplist from 'components/toplist/toplist'
+import Review from 'components/review/review'
 
 Vue.use(VueRouter)
 
@@ -31,7 +35,25 @@ const router = new VueRouter({
     },
     {
       path: '/discovery',
-      component: Discovery
+      component: Discovery,
+      children: [
+        {
+          path: 'news',
+          component: News
+        },
+        {
+          path: 'trailer',
+          component: Trailer
+        },
+        {
+          path: 'toplist',
+          component: Toplist
+        },
+        {
+          path: 'review',
+          component: Review
+        }
+      ]
     },
     {
       path: '/mine',
