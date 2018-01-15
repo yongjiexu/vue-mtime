@@ -16,6 +16,7 @@ Webpack 项目打包工具
 Stylus 预处理css
 Flex flex弹性布局，适配多种设备屏幕尺寸
 CSS3 过渡、动画、转换等
+响应式设计 响应不同尺寸的屏幕
 
 计划使用
 BetterScroll 实现滚动
