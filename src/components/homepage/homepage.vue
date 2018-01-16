@@ -1,34 +1,40 @@
 <template>
   <div class="homepage">
-    <div class="hs-wrapper" @click="handleHotShowingClick">
-      <span class="caption">正在热映&nbsp;&nbsp;({{ms.length}}部)</span>
-      <span class="right-arrow"></span>
+    <div class="part-one">
+      <router-link to="/hot-and-coming" class="hs-wrapper" tag="div">
+        <span class="caption">正在热映&nbsp;&nbsp;({{ms.length}}部)</span>
+        <span class="right-arrow"></span>
+      </router-link>
+      <ul class="hot-showing-movie">
+        <li v-for="item in slicedMs" class="hot-showing-movie-item" @click="handleMovieItemClick">
+          <img class="img-box" :src="item.img" alt="">
+          <i v-if="item.r!==-1" class="rating">{{item.r}}</i>
+          <p><span class="tCn">{{item.tCn}}</span></p>
+        </li>
+      </ul>
     </div>
-    <ul class="hot-showing-movie">
-      <li v-for="item in slicedMs" class="hot-showing-movie-item" @click="handleMovieItemClick">
-        <img class="img_box" :src="item.img" alt="">
-        <i v-if="item.r!==-1" class="rating">{{item.r}}</i>
-        <p><span class="tCn">{{item.tCn}}</span></p>
-      </li>
-    </ul>
-    <div class="coming-movie-wrapper" @click="handleHotShowingClick">
-      <span class="caption">即将上映({{totalComingMovie}})部</span>
-      <span class="right-arrow"></span>
-    </div>
+    <router-link to="/hot-and-coming" class="coming-movie-wrapper" tag="div">
+      <div>
+        <span class="caption">即将上映&nbsp;&nbsp;({{totalComingMovie}})部</span>
+        <span class="right-arrow"></span>
+      </div>
+    </router-link>
     <p class="divider"></p>
-    <div class="hp-wrapper">
-      <span class="caption">今日热点</span>
+    <div class="today-hot">
+      <div class="hp-wrapper">
+        <span class="caption">今日热点</span>
+      </div>
+      <ul class="hot-points">
+        <router-link to="/hotpoint-detail" v-for="item in hotPoints" class="hot-point" tag="li">
+          <img :src="item.img" class="todaypic">
+          <div class="todaytxt">
+            <p class="title">{{item.title}}</p>
+            <p class="desc">{{item.desc}}</p>
+            <p class="publish-time">{{formatDate(item.publishTime)}}</p>
+          </div>
+        </router-link>
+      </ul>
     </div>
-    <ul class="hot-points">
-      <li v-for="item in hotPoints" class="hot-point" @click="handleHotPointClick">
-        <img :src="item.img" class="todaypic">
-        <div class="todaytxt">
-          <p class="title">{{item.title}}</p>
-          <p class="desc">{{item.desc}}</p>
-          <p class="publish-time">{{formatDate(item.publishTime)}}</p>
-        </div>
-      </li>
-    </ul>
     <router-view></router-view>
   </div>
 </template>
@@ -102,14 +108,8 @@
         // 可依据需要在这里定义时间格式
         return y + '-' + (m < 10 ? '0' + m : m) + '-' + (d < 10 ? '0' + d : d) + ' ' + (h < 10 ? '0' + h : h) + ':' + (i < 10 ? '0' + i : i) + ':' + (s < 10 ? '0' + s : s)
       },
-      handleHotShowingClick () {
-        this.$router.push('/hot-and-coming')
-      },
       handleMovieItemClick () {
         this.$router.push('/movie-detail')
-      },
-      handleHotPointClick () {
-        this.$router.push('/hotpoint-detail')
       }
     }
   }
@@ -117,127 +117,140 @@
 
 <style scoped lang="stylus" rel="stylesheet/stylus">
   .homepage
-    .hs-wrapper
-      position: relative
-      width: 100%
-      line-height 60px
-      .caption
-        padding-left: 20px
-        font-size 26px
-        font-weight bold
-      .right-arrow
-        position: absolute
-        top: 24px
-        right: 10px
-        display: inline-block
-        width: 1.4rem
-        height: 0.8rem
-        overflow: hidden
-        background-image: url("https://static1.mtime.cn/html5/20171214163714/images/2014/i-tmore.png")
-        background-color white
-        background-repeat no-repeat
-        background-position center center
-        background-size content
-        transform rotate(-90deg)
-    .hot-showing-movie
-      display: flex
-      flex-wrap: wrap
-      justify-content center
-      padding-bottom 22px
-      .hot-showing-movie-item
+    .part-one
+      font-size 3.1400vw
+      padding: .5em 1.5em 1.5em
+      .hs-wrapper
         position: relative
-        flex: 0
-        padding: 0 7px
-        .img_box
-          width: 84px
-          height: 125px
-        .rating
+        line-height 2
+        .caption
+          font-size 5.625vw
+          font-weight bold
+        .right-arrow
           position: absolute
-          display: block
-          width: 26px
-          line-height: 23px
-          top: 2px
-          right: 9px
-          background-color #659d0e
-          font-style normal
-          color: #fff
+          top: 50%
+          margin-top: -0.4rem;
+          right: 0px
+          display: inline-block
+          width: 1.4rem
+          height: 0.8rem
+          overflow: hidden
+          background-image: url("https://static1.mtime.cn/html5/20171214163714/images/2014/i-tmore.png")
+          background-color white
+          background-repeat no-repeat
+          background-position center center
+          background-size auto .8rem
+          transform rotate(-90deg)
+      .hot-showing-movie
+        display: flex
+        flex-wrap: wrap
+        justify-content center
+        .hot-showing-movie-item
+          position: relative
+          flex: 0 0 25%
           text-align center
-        p
-          text-align center
-          margin-bottom 8px
-          .tCn
-            display: inline-block
+          .img-box
+            width: 20.3115vw
+            height: 30.6234vw
+          .rating
+            position: absolute
+            display: block
+            width: 6.2500vw
+            height: 5.6235vw
+            line-height: 5.6250vw
+            top: 0.7575vw
+            right: 2.1099vw
+            background-color #659d0e
+            font-style normal
+            color: #fff
             text-align center
-            overflow: hidden
-            line-height: 16px
-            height: 32px
-            color: #333
+          p
+            padding: 1.5625vw 0 0;
+            width: 21.8751vw;
+            margin: auto
+            margin-bottom: 3.1251vw;
+            height: 10.3111vw
+            overflow: hidden;
+            .tCn
+              font-size: 4.3750vw
+              line-height: 5.2500vw
     .coming-movie-wrapper
       position: relative
-      width: 100%
-      line-height 60px
-      border-top: 1px solid rgb(216, 216, 216)
-      margin-left: 22px
-      margin-top -8px
-      .caption
-        font-size 26px
-        font-weight bold
-      .right-arrow
-        position: absolute
-        top: 24px
-        right: 30px
-        display: inline-block
-        width: 1.4rem
-        height: 0.8rem
-        overflow: hidden
-        background-image: url("https://static1.mtime.cn/html5/20171214163714/images/2014/i-tmore.png")
-        background-color white
-        background-repeat no-repeat
-        background-position center center
-        background-size content
-        transform rotate(-90deg)
+      margin-top: -3.1250vw
+      margin-left: 4.6875vw
+      padding-left: 0
+      padding-right 4.6875vw
+      padding-top: 1.5625vw
+      padding-bottom: 1.5625vw
+      border-top: 1px solid #d8d8d8
+      div
+        position: relative
+        .caption
+          line-height 2
+          font-size 5.6250vw
+          font-weight bold
+          color: #333
+        .right-arrow
+          position: absolute
+          top: 50%
+          margin-top: -1.2500vw
+          right: 0
+          display: inline-block
+          width: 4.3729vw
+          height: 2.4985vw
+          overflow: hidden
+          background-image: url("https://static1.mtime.cn/html5/20171214163714/images/2014/i-tmore.png")
+          background-color white
+          background-repeat no-repeat
+          background-position center center
+          background-size auto 2.5000vw
+          transform rotate(-90deg)
     .divider
       background-color #f6f6f6
-      height: 15px
-    .hp-wrapper
-      position: relative
       width: 100%
-      line-height 46px
-      .caption
-        padding-left: 20px
-        font-size 26px
-        font-weight bold
-    .hot-points
-      margin-left 20px
-      .hot-point
-        display: flex
-        justify-content center
-        padding: 17px 0
-        border-bottom: 1px solid rgb(216, 216, 216)
-        .todaypic
-          display: inline-block
-          width: 144px
-          height: 101px
-          padding-right 13px
-        .todaytxt
-          display: inline-block
-          width: 216px
-          height: 103px
-          margin-right 20px
-          .title
-            padding-bottom: 5px
-            line-height 23px
-            font-size 20px
-            font-weight bold
-          .desc
-            padding: 5px 0
-            font-size: 15px
-            color: rgb(119, 119, 119)
-          .publish-time
-            color: rgb(153, 153, 153)
-            font-size 14px
-      li.hot-point:first-child
-        padding-top 0
-      li.hot-point:last-child
-        border-bottom 0px
+      height: 3.7489vw
+    .today-hot
+      padding-top: 1.5625vw
+      padding-bottom: 0px
+      padding-right: 4.6875vw
+      padding-left: 4.6875vw
+      .hp-wrapper
+        position: relative
+        color: #333
+        .caption
+          line-height: 2;
+          font-size 5.6250vw
+          font-weight bold
+      .hot-points
+        .hot-point
+          display: flex
+          justify-content center
+          padding: 4.0625vw 0
+          border-bottom: 1px solid rgb(216, 216, 216)
+          .todaypic
+            display: inline-block
+            width: 34.9990vw
+            height: 24.4137vw
+            margin-right  3.1250vw
+          .todaytxt
+            display: inline-block
+            flex 1
+            height: 25.0000vw
+            .title
+              padding-bottom: 1.2500vw
+              line-height 5.5000vw
+              font-size 5.0000vw
+              font-weight bold
+            .desc
+              padding: 1.2500vw 0
+              font-size: 3.75vw
+              color: #777
+            .publish-time
+              padding: 1.2500vw 0
+              color: #999
+              font-size 3.3816vw
+        li.hot-point:first-child
+          padding-top 0
+        li.hot-point:last-child
+          border-bottom 0
 </style>

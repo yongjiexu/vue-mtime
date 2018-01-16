@@ -22,6 +22,10 @@ Vue.use(VueRouter)
 const router = new VueRouter({
   routes: [
     {
+      path: '/',
+      redirect: '/homepage'
+    },
+    {
       path: '/homepage',
       component: Homepage
     },
@@ -37,6 +41,10 @@ const router = new VueRouter({
       path: '/discovery',
       component: Discovery,
       children: [
+        {
+          path: '/',
+          redirect: 'news'
+        },
         {
           path: 'news',
           component: News
