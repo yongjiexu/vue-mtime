@@ -33,12 +33,12 @@ export default {
 #discovery {
   .tab-wrapper {
     display: flex;
-
     .tab {
       flex: 1 0 auto;
-      height: 51px;
-      line-height: 51px;
-      font-size: 18px;
+      height: 12.5000vw
+      line-height: 12.5000vw
+      font-size: 4.3750vw
+      color: #333
       text-align: center;
     }
   }

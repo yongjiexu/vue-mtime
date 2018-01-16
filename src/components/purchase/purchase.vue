@@ -1,16 +1,17 @@
 <template>
   <div class="purchase-wrapper">
     <div style="background: red;">筛选排序结果</div>
+    <div class="slide" style="background: #0f0;">轮播图</div>
     <ul>
       <li v-for="cinema in onlineCinemas">
         <div>
           <span class="cinema-name">{{cinema.cinameName}}</span>
-          <span class="min-price"><span>{{cinema.minPrice}}</span>元起</span>
+          <span class="min-price" v-if="cinema.minPrice!==0"><span>{{cinema.minPrice/100}}</span>元起</span>
         </div>
-
         <p class="address">{{cinema.address}}</p>
         <div class="feature-wrapper">
-          <span v-for="(feature,key) in cinema.feature" v-if="feature===1">{{key}}</span>
+          <span v-for="(feature,key) in cinema.feature"
+                v-if="feature===1 && key!=='hasPark' && key!=='hasServiceTicket' && key!=='hasWifi'">{{displayFeature[key]}}</span>
         </div>
       </li>
     </ul>
@@ -24,7 +25,20 @@
     name: '',
     data () {
       return {
-        onlineCinemas: Array
+        onlineCinemas: Array,
+        displayFeature: {
+          has3D: '3D',
+          hasFeature4D: '4D',
+          hasFeature4K: '4K',
+          hasFeatureDolby: '杜比',
+          hasFeatureHuge: '巨幕',
+          hasIMAX: 'IMAX',
+          hasLoveseat: '情侣座',
+          hasPark: '停车位',
+          hasServiceTicket: '',
+          hasVIP: 'VIP',
+          hasWifi: 'WIFI'
+        }
       }
     },
     created () {
@@ -42,39 +56,45 @@
 <style scoped lang="stylus" rel="stylesheet/stylus">
   .purchase-wrapper
     ul
-      padding-left: 11.040px
+      padding-left: 2.7826vw
       li
-        padding-top 16.560px
-        padding-bottom 16.560px
-        padding-right 16.560px
+        padding-top 4.0000vw
+        padding-bottom 4.0000vw
+        padding-right 4.0000vw
         border-bottom: 1px solid #d8d8d8
         div
           position: relative
           .cinema-name
             display: inline-block
-            font-size: 17.664px
+            line-height 6.0000vw
+            vertical-align: middle
+            font-size: 4.2666vw
+            font-weight 400
             color: #333
           .min-price
             position: absolute
-            font-size 14.352px
+            font-size 3.4666vw
             right: 0
             color: #ff8600
             span
-              font-size 19.872px
+              font-size 4.8000vw
+              line-height: 5.7333vw
         .address
-          padding-top: 7.728px
+          margin-top: 1.8666vw
+          line-height 4.9333vw
+          font-size 3.4666vw
+          font-weight 400
           color: #777
-          font-size 14.352px
-          font-weight 400px
         .feature-wrapper
           span
             display: inline-block
-            padding-top: 3.312px
-            padding-right: 1.104px
-            padding-bottom 1.104px
-            padding-left 1.104px
-            margin-right: 5.520px
-            margin-top: 7.728px
-            border:1px solid #6d8297
+            padding-top: 0.8000vw
+            padding-right: 0.2666vw
+            padding-bottom 0.2666vw
+            padding-left 0.2666vw
+            margin-top: 1.8666vw
+            margin-right: 1.3333vw
+            border: 1px solid #6d8297
+            font-size 2.4000vw
             color: #6d8297
 </style>

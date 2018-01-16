@@ -10,14 +10,16 @@
       <li v-for="(news,index) in newsList" :key="index">
         <div class="type-zero-two" v-if="news.type!==1">
           <div class="img-wrapper">
-            <img :src="news.image" alt="">
-            <i v-if="news.type===2"></i>
+            <div>
+              <img :src="news.image" alt="">
+              <i v-if="news.type===2"></i>
+            </div>
           </div>
           <div class="news-content">
             <p>{{news.title}}</p>
             <div class="time-comments-wrapper">
-              <span class="publishTime">{{news.publishTime}}小时前</span>
-              <span class="comments">评论{{news.commentCount}}</span>
+              <span class="publishTime">{{diffHour(news.publishTime) }}小时前</span>
+              <span class="comments" v-if="news.commentCount!==0">评论{{news.commentCount}}</span>
             </div>
           </div>
         </div>
@@ -29,8 +31,8 @@
             </div>
           </div>
           <div class="time-comments-wrapper">
-            <span class="publishTime">{{news.publishTime}}小时前</span>
-            <span class="comments">评论 {{news.commentCount}}</span>
+            <span class="publishTime">{{diffHour(news.publishTime)}}小时前</span>
+            <span class="comments" v-if="news.commentCount!==0">评论 {{news.commentCount}}</span>
           </div>
         </div>
       </li>
@@ -63,6 +65,26 @@
       }).catch(function (error) {
         console.log(error)
       })
+    },
+    methods: {
+      formatDate (timeStamp) {
+        let ts = arguments[0] || 0
+        let t = ts ? new Date(ts * 1000) : new Date()
+        let y = t.getFullYear()
+        let m = t.getMonth() + 1
+        let d = t.getDate()
+        let h = t.getHours()
+        let i = t.getMinutes()
+        let s = t.getSeconds()
+        // 可依据需要在这里定义时间格式
+        return y + '-' + (m < 10 ? '0' + m : m) + '-' + (d < 10 ? '0' + d : d) + ' ' + (h < 10 ? '0' + h : h) + ':' + (i < 10 ? '0' + i : i) + ':' + (s < 10 ? '0' + s : s)
+      },
+      diffHour (timeStamp) {
+        return Math.round((new Date() - new Date(timeStamp * 1000)) / 1000 / 3600)
+      },
+      handleMovieItemClick () {
+        this.$router.push('/movie-detail')
+      }
     }
   }
 </script>
@@ -72,98 +94,96 @@
     .part-one
       position: relative
       overflow hidden
-      height 232px
+      height 56.2500vw
       img
-        height: 275px
+        height: 66.2968vw
       p
         position: absolute
         left: 0
         right: 0
         bottom: 0
-        height: 51px
-        line-height: 51px
-        text-align: center
-        color: white
-        font-size: 20px
-        font-weight: 700
-
+        padding: 3.7500vw 0 3.7500vw
+        background-color: rgba(0, 0, 0, 0.5)
         span
           display: block
-          background-color: rgba(0, 0, 0, 0.5)
+          text-align: center
+          font-size: 5.0000vw
+          font-weight: 700
+          color: #fff;
     .part-two
-      padding-left 20px
+      padding-left 4.6875vw
       li
         .type-zero-two
           display: flex
-          width 100%
-          height 101px
-          padding-top 19.4px
-          padding-bottom 17.4px
+          padding-top 4.6875vw
+          padding-bottom 4.2187vw
           border-bottom: 1px solid #ddd
           .img-wrapper
-            position: relative
-            flex: 0 0 97px
             display: inline-block
-            width 97px
-            height 97px
+            flex: 0 0 23.4375vw
+            height: 24.3760vw
             overflow: hidden
-            img
-              width: auto
-              height: 100%
-            i
-              position: absolute
-              font-size 12.9375px
-              bottom: .5em;
-              right: .5em;
-              width: 2.9em;
-              height: 2.9em;
-              overflow: hidden;
-              display: inline-block;
-              background: url("http://m.mtime.cn/images/2014/viceoplay.png") no-repeat center center;
-              background-size: cover;
+            div
+              position: relative
+              img
+                width: 23.4375vw
+                height 23.4375vw
+              i
+                position: absolute
+                font-size 12.9375px
+                bottom: 1.5625vw
+                right: 1.5625vw
+                width: 9.0604vw
+                height: 9.0604vw
+                overflow: hidden;
+                display: inline-block;
+                background: url("http://m.mtime.cn/images/2014/viceoplay.png") no-repeat center center;
+                background-size: cover;
           .news-content
             flex: 1
-            padding-left 19.5px
-            padding-right 19.5px
+            height: 24.3760vw
+            padding-left 4.6875vw
+            padding-right 4.6875vw
             p
-              padding-bottom: 18.7px
+              padding-bottom: 4.5311vw
               color: #333
-              font-weight 700
-              font-size 19.4px
+              line-height 1.3
+              font-size 4.6875vw
+              font-weight bold
             .time-comments-wrapper
-              font-size 13px
+              padding-bottom: 0.6250vw
+              font-size: 3.4374vw
               color: #999
               .publishTime
-                padding-right 50px
+                margin-right 12.0312vw
         .type-one
-          padding-top 19.406px
-          padding-bottom 6.469px
+          padding-top 4.6875vw
+          padding-bottom 1.5625vw
           border-bottom: 1px solid #ddd
           p
-            font-size 19px
-            font-weight 700
+            font-size 4.6875vw
+            font-weight bold
             padding-bottom: 12.938px
           .image-container
             display: flex
-            height: 84.72px
             justify-content left
-            padding-bottom: 2.587px
+            padding-bottom: 0.6250vw
             .image-wrapper
               display: block
-              flex: 0 0 123px
-              overflow: hidden
-              padding-right: 4px
-              height: 85px
+              flex: 0 0 29.6874vw
+              padding-right: 1.0041vw
+              height: 20.3125vw
               img
                 width: 100%
                 height: 100%
+                border: 1px solid #ddd
           .time-comments-wrapper
-            padding-top: 9.703px
-            padding-bottom: 15.324px
-            font-size 13px
+            padding-top: 2.3437vw
+            padding-bottom: 0.6250vw
             color: #999
             .publishTime
-              margin-right 49.809px
+              margin-right 12.0312vw
+              font-size 3.4374vw
             .comments
-              font-size 15.6544px
+              font-size 3.7812vw
 </style>
