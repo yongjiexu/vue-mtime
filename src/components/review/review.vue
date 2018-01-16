@@ -13,11 +13,13 @@
     <ul class="part-two">
       <li v-for="(review,index) in reviewList" :key="index">
         <p class="review-title">{{review.title}}</p>
-        <img class="avatar" :src="review.userImage" alt="">
-        <div class="description">
-          <span class="nickname" v-if="review.nickname">{{review.nickname}}-评分 </span>
-          <span class="movie-title">{{review.relatedObj.title}}</span>
-          <span class="rating" v-show="review.rating">{{review.rating}}</span>
+        <div>
+          <img class="avatar" :src="review.userImage" alt="">
+          <div class="description">
+            <span class="nickname" v-if="review.nickname">{{review.nickname}}-评分 </span>
+            <span class="movie-title">{{review.relatedObj.title}}</span>
+            <span class="rating" v-show="review.rating">{{review.rating}}</span>
+          </div>
         </div>
       </li>
     </ul>
@@ -58,87 +60,84 @@
     .part-one
       position: relative
       overflow hidden
-      height 232px
+      height 56.2500vw
       img
+        display: block
         width: 100%
-        height: 275px
-        font-size 13px
+        height: auto
         color: #333
       div
         position: absolute
         left: 0
         right: 0
         bottom: 0
-        /*line-height: 51px*/
-        /*text-align: center*/
         background-color: rgba(0, 0, 0, 0.5)
         img
           position: absolute;
-          width: 6.3em;
-          height: 9.5em;
-          left: 1.5em;
-          bottom: 1em;
+          width: 19.6859vw
+          height: 29.6874vw
+          left: 4.6875vw
+          bottom: 3.1250vw
           z-index: 2;
           border: 1px solid #fff
-          font-size 12.9375px
         .description
-          width: 297.562px
-          padding: 16.172px 0 17.466px 116.438px
+          width: 71.8748vw
+          padding: 3.9062vw 0 4.2188vw 28.1251vw
           .movieName
+            display: block
             color: #fff;
-            font-size: 23.2875px
-            font-weight: 700
-            line-height: 23.2875px
+            font-size: 5.6250vw
+            font-weight: bold
           .title
             display: block
-            padding: .6em 0 0;
-            line-height 16.8188px
-            font-size: 16.8188px
-            color: #ddd;
-            font-weight: normal;
-
+            padding: 1.8750vw 0 0
+            font-size: 4.0625vw
+            color: #ddd
+            font-weight: normal
     .part-two
-      padding: 0 19.406px 19.406px 19.406px
+      padding: 0 0 19.406px 19.406px
       li
-        padding-top 19.406px
-        padding-bottom: 19.406px
+        padding-top 4.6875vw
+        padding-bottom: 4.6875vw
         border-bottom 1px solid rgb(216, 216, 216)
         .review-title
-          padding-bottom 9.056px
+          padding-bottom 2.1874vw
           color: #333
-          font-size: 20.7px
-          font-weight: 700
-        .avatar
-          display: inline-block
-          width: 27px
-          height: 27px
-          margin-right 6px
+          font-size: 5.0000vw
+          font-weight: bold
+        div
           vertical-align: middle
-          border-radius 27px
-        .description
-          display: inline-block
-          width: 337px
-          font-size: 16.8188px
-          line-height: 24px
-          font-weight 400
-          vertical-align: middle;
-          .nickname
-            color: #777
-          .movie-title
-            color: #333
-            font-weight 700
-          .rating
-            background: #659d0e;
-            font-size 12.9375px
-            width: 2em;
-            height: 1.8em;
-            margin-left .5px
-            color: #fff;
-            border-radius: 0;
-            display: inline-block;
-            vertical-align: middle;
-            overflow: hidden;
-            line-height: 1.8em;
-            text-align: center;
-
+          padding-top 0.4687vw
+          .avatar
+            vertical-align: middle
+            display: inline-block
+            width: 6.5620vw
+            height: 6.5620vw
+            margin-right 1.5625vw
+            border-radius 6.5620vw
+          .description
+            vertical-align: middle
+            display: inline-block
+            width: 82.5004vw
+            padding-top: 0
+            .nickname
+              vertical-align: middle
+              font-size 4.0625vw
+              color: #777
+            .movie-title
+              vertical-align: middle
+              font-size 4.0625vw
+              color: #333
+              font-weight bold
+            .rating
+              vertical-align: middle
+              display: inline-block;
+              width: 6.2500vw
+              height: 5.6235vw
+              margin-left 1.5625vw
+              line-height: 5.6235vw
+              background: #659d0e
+              color: #fff
+              overflow: hidden
+              text-align: center
 </style>

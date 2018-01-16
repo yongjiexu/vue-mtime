@@ -66,107 +66,89 @@
     .part-one
       position: relative
       overflow hidden
-      height 232px
+      height 56.25vw
       img
         width: 100%
-        height: 275px
-        font-size 13px
+        height: auto
         color: #333
       p
         position: absolute
         left: 0
         right: 0
         bottom: 0
-        height: 51px
-        line-height: 51px
+        padding-top: 3.7500vw
+        padding-bottom: 3.7500vw
         text-align: center
         background-color: rgba(0, 0, 0, 0.5)
         span
           display: inline-block
           vertical-align: top
           color: #fff;
-          font-size: 20.7px;
-          font-weight: 700
+          font-size: 5.0000vw
+          font-weight: bold
     .rank
       display: flex
       justify-content space-around
       padding: 32.344px 0 27.169px 0
       a
-        flex: 0 0 90px
-        height: 96.82px
+        flex: 0 0 21.7391vw
+        height: 23.3864vw
+        .icon
+          width: 15.3104vw
+          height: 15.3104vw
+          border-radius: 15.3104vw
+          background-size: cover
+          margin: 0 auto
         &.first
           .icon
-            width: 4.9em;
-            height: 4.9em;
-            margin: 0 auto
             background-image: url("https://m.mtime.cn/images/2014/top01.png")
-            background-size: cover;
-            font-size 12.9375px
-            border-radius: 4.9em;
           span
             color: #1498c9
         &.second
           .icon
-            width: 4.9em;
-            height: 4.9em;
-            margin: 0 auto
             background-image: url("https://m.mtime.cn/images/2014/top02.png")
-            background-size: cover;
-            font-size 12.9375px
-            border-radius: 4.9em;
           span
-            color: #1498c9
+            color: #3bc7c2
         &.third
           .icon
-            width: 4.9em;
-            height: 4.9em;
-            margin: 0 auto
             background-image: url("https://m.mtime.cn/images/2014/top03.png")
-            background-size: cover;
-            font-size 12.9375px
-            border-radius: 4.9em;
           span
             color: #ffc12d
       span
         display: inline-block
-        height: 20.67px
-        padding-top: 18.113px
-        font-size 16px
-        font-weight 400
+        padding-top: 4.3751vw
+        font-size 3.7500vw
     ul
-      padding-left 19.406px
+      padding-left 4.6875vw
       li
-        height: 100.750px
-        border-top: 1px solid rgb(216, 216, 216)
+        border-top: 1px solid #d8d8d8
         .content
           position: relative
-          height: 55.763px
-          padding: 21.994px 0
+          padding: 5.3124vw 0
           .topListNameCn
-            padding-bottom 12px
-            font-size:19.4063px
-            font-weight: 700
+            font-size:4.6875vw
+            line-height 1.4
+            font-weight: bold
           .summary
             overflow: hidden
-            width: 355.781px
-            padding-right 38.813px
+            height: 4.9994vw
+            padding-right: 9.375vw
+            margin-top 2.0312vw
             white-space: nowrap
             text-overflow ellipsis
-            line-height 16.8188px
-            font-size 16.8188px
+            font-size 4.0625vw
             color: #777
           i
-            display: block;
-            width: 1.2rem;
-            height: .8rem;
             position: absolute;
             top: 50%;
-            margin-top: -0.4rem;
-            right: 12.9375px
+            margin-top: -0.0125vw
+            right: 3.1250vw
+            display: block;
+            width: 4.3729vw
+            height: 2.4985vw
             overflow: hidden;
-            line-height: 11rem;
-            font-size 12.9375px
-            transform: rotate(-90deg);
-            background: #fff url("https://m.mtime.cn/images/2014/i-tmore.png") no-repeat center center;
-            background-size: auto .8rem;
+            line-height: 34.3751
+            transform: rotate(-90deg)
+            background: #fff url("https://m.mtime.cn/images/2014/i-tmore.png") no-repeat center center
+            background-size: auto 2.5000vw
 </style>
