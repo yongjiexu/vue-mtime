@@ -318,109 +318,109 @@
                     font-size: 1.5rem
                     font-weight bold
     .recommend-title
-      position: relative;
-      padding: .8rem 0;
-      text-align: center;
-      background-color: #f6f6f6;
+      position: relative
+      padding: .8rem 0
+      text-align: center
+      background-color: #f6f6f6
       h2
-        padding: .5rem 0;
+        padding: .5rem 0
         .i-reco
-          right: -1em;
-          position: relative;
-          display: inline-block;
-          vertical-align: middle;
-          background: #f6f6f6 url("http://static1.mtime.cn/html5/20180115165147/images/vip/rhombus.png") no-repeat right center;
-          width: .5em;
-          height: .5em;
-          background-size: .5em auto;
-          background-color: #f6f6f6;
-          z-index: 2;
+          right: -1em
+          position: relative
+          display: inline-block
+          vertical-align: middle
+          background: #f6f6f6 url("http://static1.mtime.cn/html5/20180115165147/images/vip/rhombus.png") no-repeat right center
+          width: .5em
+          height: .5em
+          background-size: .5em auto
+          background-color: #f6f6f6
+          z-index: 2
         span
-          padding: 0 1.5rem 0 1.5rem;
-          font-size: 1.2em;
-          color: #999;
-          font-weight: normal;
-          background: #f6f6f6;
-          position: relative;
-          z-index: 1;
+          padding: 0 1.5rem 0 1.5rem
+          font-size: 1.2em
+          color: #999
+          font-weight: normal
+          background: #f6f6f6
+          position: relative
+          z-index: 1
     .recommend-title:after
-      content: "";
-      display: block;
-      height: 1px;
-      background: #e9e9e9;
-      overflow: hidden;
-      position: absolute;
-      left: 20%;
-      right: 20%;
-      top: 50%;
-      width: 60%;
-      z-index: 0;
+      content: ""
+      display: block
+      height: 1px
+      background: #e9e9e9
+      overflow: hidden
+      position: absolute
+      left: 20%
+      right: 20%
+      top: 50%
+      width: 60%
+      z-index: 0
     .part.five
-      padding-bottom: 1rem;
+      padding-bottom: 1rem
       ul
-        overflow: hidden;
-        position: relative;
-        list-style: none;
+        overflow: hidden
+        position: relative
+        list-style: none
         li
-          margin-right: .75%;
-          width: 49.25%;
-          min-height: 22rem;
-          float: left;
-          display: inline;
-          position: relative;
-          background-color: #fff;
-          margin-bottom: .5rem;
+          margin-right: .75%
+          width: 49.25%
+          min-height: 22rem
+          float: left
+          display: inline
+          position: relative
+          background-color: #fff
+          margin-bottom: .5rem
           .goods-box
-            background: #fff;
-            position: relative;
+            background: #fff
+            position: relative
             .mtips
-              top: .4rem;
-              position: absolute;
-              left: 0rem;
-              z-index: 3;
+              position: absolute
+              left: 0rem
+              top: .4rem
+              z-index: 3
               .i-purchase
-                background-color: #25ACBD;
-                padding: .2rem .3rem;
-                display: inline-block;
-                color: #fff;
-                background: #b569cf;
-                vertical-align: middle;
-                margin-right: .5rem;
-                margin-top: -0.3rem;
+                display: inline-block
+                background-color: #25ACBD
+                padding: .2rem .3rem
+                margin-right: .5rem
+                margin-top: -0.3rem
+                vertical-align: middle
+                font-style normal
+                color: #fff
             .pic-box
-              height: auto;
-              margin-bottom: 1rem;
-              position: relative;
+              height: auto
+              margin-bottom: 1rem
+              position: relative
               img
-                display: block;
-                width: 100%;
-                height: auto;
+                display: block
+                width: 100%
+                height: auto
             .text-box
-              padding: 0 1rem;
+              padding: 0 1rem
               p
-                font-size: 1.1rem;
-                line-height: 1.5rem;
-                min-height: 3rem;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                display: -webkit-box;
-                -webkit-line-clamp: 2;
-                -webkit-box-orient: vertical;
-                margin-bottom: .2rem;
+                font-size: 1.1rem
+                line-height: 1.5rem
+                min-height: 3rem
+                overflow: hidden
+                text-overflow: ellipsis
+                display: -webkit-box
+                -webkit-line-clamp: 2
+                -webkit-box-orient: vertical
+                margin-bottom: .2rem
               span
-                padding: 0rem 0 .5rem;
-                color: #ff8600;
-                font-size: 1.3rem;
-                font-weight: normal;
-                display: inline-block;
-                vertical-align: middle;
+                padding: 0rem 0 .5rem
+                color: #ff8600
+                font-size: 1.3rem
+                font-weight: normal
+                display: inline-block
+                vertical-align: middle
       a
-        margin: 0rem 1rem 0;
-        font-size: 1.5rem;
-        color: #777;
-        padding: 1.5rem 0;
-        text-align: center;
-        display: block;
+        margin: 0rem 1rem 0
+        font-size: 1.5rem
+        color: #777
+        padding: 1.5rem 0
+        text-align: center
+        display: block
         height: 6.1398vw
-        padding-bottom: .4rem;
+        padding-bottom: .4rem
 </style>
