@@ -25,7 +25,7 @@
         <span class="caption">今日热点</span>
       </div>
       <ul class="hot-points">
-        <router-link to="/hotpoint-detail" v-for="item in hotPoints" class="hot-point" tag="li">
+        <router-link to="/hotpoint-detail" v-for="(item,index) in hotPoints" class="hot-point" tag="li" :key="index">
           <img :src="item.img" class="todaypic">
           <div class="todaytxt">
             <p class="title">{{item.title}}</p>
