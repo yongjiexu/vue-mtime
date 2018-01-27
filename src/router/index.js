@@ -89,7 +89,13 @@ const router = new VueRouter({
     },
     {
       path: '/movie-detail',
-      component: MovieDetail
+      component: MovieDetail,
+      children: [
+        {
+          path: ':id',
+          component: MovieDetail
+        }
+      ]
     },
     {
       path: '/hotpoint-detail',

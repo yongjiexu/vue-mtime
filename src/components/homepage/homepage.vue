@@ -6,7 +6,7 @@
         <span class="right-arrow"></span>
       </router-link>
       <ul class="hot-showing-movie">
-        <li v-for="item in slicedMs" class="hot-showing-movie-item" @click="handleMovieItemClick">
+        <li v-for="item in slicedMs" class="hot-showing-movie-item" @click="handleMovieItemClick(item)">
           <img class="img-box" :src="item.img" alt="">
           <i v-if="item.r!==-1" class="rating">{{item.r}}</i>
           <p><span class="tCn">{{item.tCn}}</span></p>
@@ -108,8 +108,10 @@
         // 可依据需要在这里定义时间格式
         return y + '-' + (m < 10 ? '0' + m : m) + '-' + (d < 10 ? '0' + d : d) + ' ' + (h < 10 ? '0' + h : h) + ':' + (i < 10 ? '0' + i : i) + ':' + (s < 10 ? '0' + s : s)
       },
-      handleMovieItemClick () {
-        this.$router.push('/movie-detail')
+      handleMovieItemClick (item) {
+        this.$router.push({
+          path: `movie-detail/${item.id}`
+        })
       }
     }
   }
@@ -231,7 +233,7 @@
             display: inline-block
             width: 34.9990vw
             height: 24.4137vw
-            margin-right  3.1250vw
+            margin-right 3.1250vw
           .todaytxt
             display: inline-block
             flex 1

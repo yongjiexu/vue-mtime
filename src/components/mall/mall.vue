@@ -358,16 +358,17 @@
     .part.five
       padding-bottom: 1rem
       ul
-        overflow: hidden
+        display: flex
+        justify-content: space-between
+        flex-wrap wrap
+        width: 100%
         position: relative
         list-style: none
         li
-          margin-right: .75%
+          display: block
+          flex: 0 0 49.25%
           width: 49.25%
           min-height: 22rem
-          float: left
-          display: inline
-          position: relative
           background-color: #fff
           margin-bottom: .5rem
           .goods-box
