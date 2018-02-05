@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import 'common/stylus/index.styl'
+import store from './store'
 
 import Vant from 'vant'
 import 'vant/lib/vant-css/index.css'
@@ -16,5 +17,6 @@ new Vue({
   el: '#app',
   template: '<App/>',
   components: {App},
-  router
+  router,
+  store
 })

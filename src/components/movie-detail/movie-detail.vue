@@ -3,10 +3,18 @@
 </template>
 
 <script>
+  import {mapGetters} from 'vuex'
+
   export default {
     name: 'movie-detail',
-    created () {
+    created() {
       console.log(this.$route.path)
+      console.log(this.currentMovieId)
+    },
+    computed: {
+      ...mapGetters([
+        'currentMovieId'
+      ])
     }
   }
 </script>

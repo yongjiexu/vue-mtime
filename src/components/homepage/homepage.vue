@@ -8,7 +8,7 @@
       <ul class="hot-showing-movie">
         <li v-for="item in slicedMs" class="hot-showing-movie-item" @click="handleMovieItemClick(item)">
           <img class="img-box" :src="item.img" alt="">
-          <i v-if="item.r!==-1" class="rating">{{item.r}}</i>
+          <i v-if="item.r!==-1" class="rating">{{item.r.toFixed(1)}}</i>
           <p><span class="tCn">{{item.tCn}}</span></p>
         </li>
       </ul>
@@ -41,13 +41,13 @@
 
 <script>
   // todo 考虑使用网格布局
-  // todo 写方法把item.r精确到一位小数
   // todo 考虑抽出一个tab组件，该组件作为m-header/m-footer的子组件 。可以传入文字或图片、可以选择是否带分隔线
   import axios from 'axios'
+  import {mapMutations} from 'vuex'
 
   export default {
     name: 'homepage',
-    data () {
+    data() {
       return {
         ms: {
           type: Array,
@@ -64,7 +64,7 @@
       }
     },
     computed: {
-      slicedMs () {
+      slicedMs() {
         // 此时，this.ms.length就是undefined。只能用这种方式判断 不能和0比较
         if (this.ms.length === undefined) {
           return []
@@ -73,7 +73,7 @@
         }
       }
     },
-    created () {
+    created() {
       let _this = this
       // 请求正在热映数据
       axios.get('/api/ms')
@@ -96,7 +96,7 @@
         })
     },
     methods: {
-      formatDate (timeStamp) {
+      formatDate(timeStamp) {
         var ts = arguments[0] || 0
         var t = ts ? new Date(ts * 1000) : new Date()
         var y = t.getFullYear()
@@ -108,11 +108,15 @@
         // 可依据需要在这里定义时间格式
         return y + '-' + (m < 10 ? '0' + m : m) + '-' + (d < 10 ? '0' + d : d) + ' ' + (h < 10 ? '0' + h : h) + ':' + (i < 10 ? '0' + i : i) + ':' + (s < 10 ? '0' + s : s)
       },
-      handleMovieItemClick (item) {
+      handleMovieItemClick(item) {
+        this.setCurrentMovieId(item.id)
         this.$router.push({
           path: `movie-detail/${item.id}`
         })
-      }
+      },
+      ...mapMutations({
+        setCurrentMovieId: 'SET_CURRENT_MOVIE_ID'
+      })
     }
   }
 </script>
